@@ -36,4 +36,4 @@ let objetoFormatacao = {
 }
 
 let dataFormatada = hoje.toLocaleDateString('pt-BR', objetoFormatacao)
-// console.log(dataFormatada)
+console.log(dataFormatada)
