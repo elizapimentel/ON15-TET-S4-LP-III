@@ -35,19 +35,18 @@ let addRemItem = clienteYolanda.splice(1,1,
     {produto: 'Blusa simples', valor: 35.0}
     )
 
-let valorTotal = []
-let valorDesconto = []
 
 
 //calculo do valor total da compra
     function calcularTotal(compras){
-        valorTotal = compras.map(item => item.valor).reduce((acc, elem) => acc + elem);   
+        let valorTotal = compras.map(item => item.valor).reduce((acc, elem) => acc + elem);   
         return valorTotal
     }
-console.log(calcularTotal(clienteLilit))
+
 
 //calculo do valor total de descontos    
-    function calcularDescontos(desconto){
+    function getDescontos(desconto){
+        let valorDesconto = [] 
         cliente = desconto.forEach((item) => {
             if(item.valor >= 200){
                valorDesconto.push(item.valor*0.5)
@@ -60,19 +59,19 @@ console.log(calcularTotal(clienteLilit))
             }
             
         }) 
-        return valorDesconto.reduce((ant,atu)=> ant+atu)
+        return valorDesconto
         
                
     }
-    console.log(calcularDescontos(clienteLilit))
+
 //calculo do valor final, aplicando data e cupom    
     function calcularValorFinal(cliente){
         let quantidadeProdutos = cliente.lenght
                     
         let dataCompra = new Date().toLocaleDateString('pt-BR')
 
-   
-
+        let valorTotal = calcularTotal(cliente)
+        let valorDesconto = getDescontos(cliente).reduce((acc, elem) => acc + elem);
         let valorFinal = valorTotal - valorDesconto
 
         let notaFiscal = {
@@ -94,9 +93,9 @@ console.log(calcularTotal(clienteLilit))
     }
   
   
-    console.log("Compras cliente Lilit")
+    console.log("Compras cliente Lilit ****************** ")
     console.log(calcularValorFinal(clienteLilit))
- /*    console.log("Compras cliente Beth")
-    calcularValorFinal(clienteBeth)
-    console.log("Compras cliente Yolanda")
-    calcularValorFinal(clienteYolanda)    */
+    console.log("Compras cliente Beth ****************** ")
+    console.log(calcularValorFinal(clienteBeth))
+    console.log("Compras cliente Yolanda ****************** ")
+    console.log(calcularValorFinal(clienteYolanda))   
