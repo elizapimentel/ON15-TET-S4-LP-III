@@ -47,7 +47,7 @@ let addRemItem = clienteYolanda.splice(1,1,
 //calculo do valor total de descontos    
     function getDescontos(desconto){
         let valorDesconto = [] 
-        cliente = desconto.forEach((item) => {
+        cliente = desconto.map((item) => {
             if(item.valor >= 200){
                valorDesconto.push(item.valor*0.5)
             } else if(item.valor >= 100){
@@ -94,8 +94,8 @@ let addRemItem = clienteYolanda.splice(1,1,
   
   
     console.log("Compras cliente Lilit ****************** ")
-    console.log(calcularValorFinal(clienteLilit))
+    calcularValorFinal(clienteLilit)
     console.log("Compras cliente Beth ****************** ")
-    console.log(calcularValorFinal(clienteBeth))
+    calcularValorFinal(clienteBeth)
     console.log("Compras cliente Yolanda ****************** ")
-    console.log(calcularValorFinal(clienteYolanda))   
+    calcularValorFinal(clienteYolanda)  
