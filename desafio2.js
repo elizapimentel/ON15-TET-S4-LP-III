@@ -25,26 +25,26 @@ let clienteYolanda = [
     {produto: 'Tênis casual preto', valor: 120.0}, 
     {produto: 'meia calça transparente', valor: 30.0}]    
 
+//apenas para praticar o uso dos métodos de array    
 let adicionarItem = clienteBeth.push(
     {produto: 'Blusa preta gola alta', valor: 60.0},
     {produto: 'Tênis casual preto', valor: 120.0})
 
-let addRemItem = clienteYolanda.splice(1,1, 
+let addItem = clienteYolanda.splice(1,1, 
     {produto: 'Calça preta', valor: 100.0}, 
     {produto: 'Jaqueta Jeans', valor: 300.0}, 
     {produto: 'Blusa simples', valor: 35.0}
     )
 
 
-
-//calculo do valor total da compra
+//calculo do valor total da compra utilizando outros metódos
     function calcularTotal(compras){
         let valorTotal = compras.map(item => item.valor).reduce((acc, elem) => acc + elem);   
         return valorTotal
     }
 
 
-//calculo do valor total de descontos    
+//calculo do valor total de descontos utilizando métodos   
     function getDescontos(desconto){
         let valorDesconto = [] 
         cliente = desconto.map((item) => {
